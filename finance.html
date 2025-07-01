@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reliance vs. Adani: A Profound Financial Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7;
+            color: #334155;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        
+        .nav-link {
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 9999px;
+        }
+        .nav-link.active, .nav-link:hover {
+            background-color: #7E9A94;
+            color: #FFFFFF;
+        }
+        .section-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .toggle-btn-group button {
+            transition: all 0.2s ease-in-out;
+            border: 1px solid #CBD5E1;
+        }
+        .toggle-btn-group button.active {
+            background-color: #334155;
+            color: white;
+            border-color: #334155;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .stat-card {
+            background: #F8FAFC;
+            border-left: 4px solid;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .ril-border { border-color: #4A90E2; }
+        .adani-border { border-color: #F5A623; }
+
+        .timeline { position: relative; max-width: 1200px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 6px; background-color: #CBD5E1; top: 0; bottom: 0; left: 50%; margin-left: -3px; }
+        .timeline-container { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+        .timeline-container.left { left: 0; }
+        .timeline-container.right { left: 50%; }
+        .timeline-container::after { content: ''; position: absolute; width: 25px; height: 25px; right: -13px; background-color: white; border: 4px solid #7E9A94; top: 15px; border-radius: 50%; z-index: 1; }
+        .timeline-container.right::after { left: -12px; }
+        .timeline-content { padding: 20px 30px; background-color: white; position: relative; border-radius: 6px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .timeline-container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-container.left, .timeline-container.right { left: 0%; }
+            .timeline-container.left::after, .timeline-container.right::after { left: 18px; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <h1 class="text-xl md:text-2xl font-bold text-slate-800">A Tale of Two Titans</h1>
+                <nav class="hidden md:flex items-center space-x-2">
+                    <a href="#overview" class="nav-link text-slate-600 font-medium text-sm">Overview</a>
+                    <a href="#health" class="nav-link text-slate-600 font-medium text-sm">Health</a>
+                    <a href="#performance" class="nav-link text-slate-600 font-medium text-sm">Performance</a>
+                    <a href="#dupont" class="nav-link text-slate-600 font-medium text-sm">DuPont Deep Dive</a>
+                    <a href="#risk" class="nav-link text-slate-600 font-medium text-sm">Risk & Valuation</a>
+                    <a href="#hindenburg" class="nav-link text-slate-600 font-medium text-sm">The Stress Test</a>
+                    <a href="#conclusion" class="nav-link text-slate-600 font-medium text-sm">Conclusion</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        <section id="overview" class="section-card">
+    <h2 class="text-3xl font-bold text-center mb-2">Reliance vs. Adani: Two Strategies of Growth</h2>
+    <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-12">
+        This professional comparison deeply analyzes the divergent strategic and financial trajectories of India's leading conglomerates over a decade. Reliance Industries embodies a 'Growth with Fortification' strategy, meticulously leveraging internal cash flows for strategic growth into consumer tech. In contrast, Adani Group exemplifies 'Leveraged Incubation,' leveraging aggressive debt-funded growth to rapidly create infrastructure assets. This section comprehensively reviews their core strategies as a prelude to the ensuing detailed financial analysis.
+    </p>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-6 rounded-lg border-2 border-dashed ril-border bg-blue-50/50">
+            <h3 class="text-2xl font-bold text-slate-800 flex items-center mb-4">
+                <span class="mr-3 text-3xl">🏰</span> Reliance: Growth with Fortification
+            </h3>
+            <p class="text-slate-600">
+                RIL has executed a masterfully calculated transformation leveraging its consistent cash flows from the Oil-to-Chemicals (O2C) sector, financing substantial investments in consumer-driven Jio and Retail ventures. This methodical approach facilitated the absorption of initial losses without financial compromise, epitomizing "fortification" of its balance sheet and ensuring resilient market leadership.
+            </p>
+        </div>
+        <div class="p-6 rounded-lg border-2 border-dashed adani-border bg-orange-50/50">
+            <h3 class="text-2xl font-bold text-slate-800 flex items-center mb-4">
+                <span class="mr-3 text-3xl">🚀</span> Adani: Leveraged Incubation
+            </h3>
+            <p class="text-slate-600">
+                The Adani Group's agile model emphasizes rapid expansion, scale, and substantial leverage. Adani Enterprises functions as an incubator for capital-intensive infrastructure ventures, aggressively pursued using significant debt financing. This model prioritizes swift capital recycling and expansion, presenting dynamic growth opportunities and inherent susceptibility to market volatilities.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="health" class="section-card">
+    <h2 class="text-3xl font-bold text-center mb-2">Comprehensive Financial Health Dashboard</h2>
+    <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-8">
+        A thorough analysis of financial health explores liquidity and solvency. This section provides an in-depth insight into how Reliance and Adani's strategic approaches manifest as distinct financial risk profiles. Utilize the toggle to examine critical parameters defining short-term robustness and long-term financial equilibrium.
+    </p>
+    <div class="flex justify-center mb-8 toggle-btn-group" id="health-toggle">
+        <button data-view="liquidity" class="px-4 py-2 rounded-l-md active">Liquidity</button>
+        <button data-view="solvency" class="px-4 py-2 rounded-r-md">Solvency</button>
+    </div>
+    <div id="health-charts">
+        <div data-view="liquidity">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-center mb-2">Current Ratio</h3>
+                    <div class="chart-container"><canvas id="currentRatioChart"></canvas></div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-center mb-2">Quick Ratio</h3>
+                    <div class="chart-container"><canvas id="quickRatioChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div data-view="solvency" class="hidden">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-center mb-2">Debt-to-Equity Ratio</h3>
+                    <div class="chart-container"><canvas id="deRatioChart"></canvas></div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-center mb-2">Interest Coverage Ratio</h3>
+                    <div class="chart-container"><canvas id="icrChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="health-analysis" class="mt-8">
+        <div class="stat-card ril-border">
+            <h4 class="font-bold text-lg text-slate-800">In-depth Reliance Analysis</h4>
+            <p class="text-slate-600" id="ril-health-text">RIL demonstrates financial prudence with steady liquidity ratios, showcasing stability across high-capital expenditure phases without compromising financial health, aided by strong, stable cash flows from intrinsic operations.</p>
+        </div>
+        <div class="stat-card adani-border mt-4">
+            <h4 class="font-bold text-lg text-slate-800">In-depth Adani Analysis</h4>
+            <p class="text-slate-600" id="adani-health-text">Adani reflects a high-risk liquidity strategy, with periods of below-threshold current ratios indicating structural reliance on ongoing refinancing, reflecting a highly leveraged operational model.</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Section 3: Performance -->
+        <section id="performance" class="section-card">
+            <h2 class="text-3xl font-bold text-center mb-2">Performance Analytics Engine</h2>
+            <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-8">
+                How effectively do these titans generate returns and utilize their vast asset bases? This section contrasts their profitability (the ability to generate profit) and efficiency (how well assets are used to create sales). Toggle between the views to see the financial outcomes of their strategic bets.
+            </p>
+            <div class="flex justify-center mb-8 toggle-btn-group" id="performance-toggle">
+                <button data-view="profitability" class="px-4 py-2 rounded-l-md active">Profitability</button>
+                <button data-view="efficiency" class="px-4 py-2 rounded-r-md">Efficiency</button>
+            </div>
+            
+            <div id="performance-charts">
+                <div data-view="profitability">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-center mb-2">Net Profit Margin (%)</h3>
+                            <div class="chart-container"><canvas id="npmChart"></canvas></div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-center mb-2">Return on Equity (ROE) (%)</h3>
+                            <div class="chart-container"><canvas id="roeChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-view="efficiency" class="hidden">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-center mb-2">Asset Turnover</h3>
+                            <div class="chart-container"><canvas id="assetTurnoverChart"></canvas></div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-center mb-2">Inventory Turnover</h3>
+                            <div class="chart-container"><canvas id="inventoryTurnoverChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="performance-analysis" class="mt-8">
+                <div class="stat-card ril-border">
+                    <h4 class="font-bold text-lg text-slate-800">Reliance Performance Analysis</h4>
+                    <p class="text-slate-600" id="ril-performance-text"></p>
+                </div>
+                <div class="stat-card adani-border mt-4">
+                    <h4 class="font-bold text-lg text-slate-800">Adani Performance Analysis</h4>
+                    <p class="text-slate-600" id="adani-performance-text"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: DuPont Deep Dive -->
+        <section id="dupont" class="section-card">
+             <h2 class="text-3xl font-bold text-center mb-2">The DuPont Deep Dive</h2>
+             <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-8">
+                Return on Equity (ROE) can be misleading. The DuPont analysis deconstructs it to reveal *how* a company generates returns: through high profit margins (Profitability), efficient use of assets (Efficiency), or high debt (Leverage). Use the slider to explore how Reliance and Adani build their ROE year by year.
+            </p>
+            <div class="mb-8">
+                <label for="dupont-year-slider" class="block text-center font-medium mb-2">Select Fiscal Year: <span id="dupont-year-label" class="font-bold text-xl text-slate-800">2024</span></label>
+                <input id="dupont-year-slider" type="range" min="0" max="9" value="9" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-4 text-blue-600">Reliance Industries</h3>
+                    <div class="chart-container h-80 md:h-96"><canvas id="rilDupontChart"></canvas></div>
+                    <p class="text-center mt-4 text-slate-600" id="ril-dupont-equation"></p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-4 text-orange-500">Adani Enterprises</h3>
+                    <div class="chart-container h-80 md:h-96"><canvas id="adaniDupontChart"></canvas></div>
+                    <p class="text-center mt-4 text-slate-600" id="adani-dupont-equation"></p>
+                </div>
+            </div>
+             <div class="mt-8 p-6 bg-slate-100 rounded-lg text-center">
+                 <h4 class="text-xl font-bold text-slate-800">The Core Insight</h4>
+                 <p class="text-lg text-slate-600">This reveals the fundamental difference: Reliance's ROE is driven by <span class="font-bold">Operational Performance</span> (strong margins and recovering efficiency), while Adani's ROE is significantly engineered through <span class="font-bold">Financial Leverage</span>.</p>
+             </div>
+        </section>
+
+        <!-- Section 5: Risk & Valuation -->
+        <section id="risk" class="section-card">
+            <h2 class="text-3xl font-bold text-center mb-2">Risk & Market Valuation</h2>
+            <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-12">
+               Financial risk can be quantified. The Altman Z-score is a proven model for predicting bankruptcy risk. We pair this with market valuation (P/E Ratio) to see how investors perceived this risk over time. The charts reveal a stark contrast in underlying financial safety versus market perception.
+            </p>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold text-center mb-2">Altman Z-Score (Bankruptcy Risk)</h3>
+                    <div class="chart-container"><canvas id="zScoreChart"></canvas></div>
+                    <p class="text-center text-sm text-slate-500 mt-2">Higher score indicates lower risk. Below 1.81 is the 'Distress Zone'.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-center mb-2">Price-to-Earnings (P/E) Ratio</h3>
+                    <div class="chart-container"><canvas id="peRatioChart"></canvas></div>
+                    <p class="text-center text-sm text-slate-500 mt-2">Reflects market expectation of future growth.</p>
+                </div>
+            </div>
+             <div id="risk-analysis" class="mt-8">
+                <div class="stat-card ril-border">
+                    <h4 class="font-bold text-lg text-slate-800">Reliance Risk Analysis</h4>
+                    <p class="text-slate-600">RIL's Z-score consistently remained in the 'safe' or upper 'grey' zone, reflecting its low bankruptcy risk. Its P/E ratio expansion was a gradual re-rating by the market, rewarding its tangible transformation into a high-growth consumer tech player.</p>
+                </div>
+                <div class="stat-card adani-border mt-4">
+                    <h4 class="font-bold text-lg text-slate-800">Adani Risk Analysis</h4>
+                    <p class="text-slate-600">AEL's Z-score consistently languished in the 'distress' or low 'grey' zone, quantitatively confirming its high-risk financial structure. In stark contrast, its P/E ratio reached astronomical levels, indicating a valuation built on a powerful growth narrative rather than underlying financial strength, making it vulnerable to sentiment shifts.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 6: Hindenburg Stress Test -->
+        <section id="hindenburg" class="section-card">
+            <h2 class="text-3xl font-bold text-center mb-2">The Hindenburg Stress Test</h2>
+             <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-12">
+               In January 2023, a report by short-seller Hindenburg Research put Adani's high-leverage model to the ultimate test. The report triggered a crisis of confidence, wiping over $100 billion from the group's market value. This timeline chronicles the key events of the crisis, which exposed the core vulnerability of a strategy dependent on external capital and narrative.
+            </p>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-lg">Jan 24, 2023: Report Published</h3>
+                        <p class="text-sm text-slate-600">Hindenburg Research releases its report alleging "brazen stock manipulation and accounting fraud," citing extreme overvaluation and precarious leverage.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-lg">Jan 27, 2023: Market Carnage</h3>
+                        <p class="text-sm text-slate-600">Adani Group stocks plummet, with the combined market cap falling by over $100 billion in the ensuing days. The FPO is now at risk.</p>
+                    </div>
+                </div>
+                 <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-lg">Jan 29, 2023: The 413-Page Rebuttal</h3>
+                        <p class="text-sm text-slate-600">Adani Group issues a lengthy response, calling the report a "malicious attack on India" and denying all allegations. Hindenburg retorts that "fraud cannot be obfuscated by nationalism."</p>
+                    </div>
+                </div>
+                 <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-lg">Feb 1, 2023: FPO Withdrawn</h3>
+                        <p class="text-sm text-slate-600">Despite being fully subscribed, Adani Enterprises withdraws its ₹20,000 crore FPO to "protect investors" as its share price trades below the offer price, a major blow to confidence.</p>
+                    </div>
+                </div>
+                 <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-lg">Mar 2, 2023: A Vote of Confidence</h3>
+                        <p class="text-sm text-slate-600">In a crucial move to stabilize the situation, boutique investment firm GQG Partners invests $1.87 billion into four Adani group companies, providing a much-needed lifeline and signaling renewed institutional confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Conclusion -->
+        <section id="conclusion" class="section-card">
+            <h2 class="text-3xl font-bold text-center mb-2">Conclusion: Two Paths, Two Destinies</h2>
+             <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-12">
+                The financial data from the past decade tells a clear story. Reliance and Adani represent two fundamentally different philosophies of growth, risk, and value creation. RIL's "Growth with Fortification" model has built a resilient, financially powerful conglomerate. Adani's "Leveraged Incubation" model has created immense scale at high speed but with significant inherent risks.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-6 rounded-lg bg-slate-50">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Recommendations for Reliance</h3>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><b>Enhance Shareholder Returns:</b> With new ventures now mature, focus on driving ROE into consistent double-digit territory by improving asset efficiency.</li>
+                        <li><b>Articulate Capital Return Policy:</b> As capex moderates, communicate a clear policy on dividends or buybacks to signal capital discipline.</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-50">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Recommendations for Adani</h3>
+                     <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><b>Systematic Deleveraging:</b> The top priority must be a credible, systematic reduction of debt across the group to lower financial risk and improve stability.</li>
+                        <li><b>Comprehensive Governance Overhaul:</b> To rebuild long-term trust, a radical improvement in transparency and governance is required, including appointing globally recognized auditors.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 text-slate-500 text-sm">
+        <p>Interactive report generated from the research paper 'Financial Ratio Analysis of Reliance Industries and Adani Group (2015-2024)'</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        
+        const financialData = {
+            years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+            ril: {
+                currentRatio: [0.93, 1.02, 0.98, 1.03, 0.94, 1.03, 1.02, 1.04, 1.02, 1.09],
+                quickRatio: [0.62, 0.69, 0.68, 0.71, 0.63, 0.76, 0.71, 0.66, 0.64, 0.75],
+                deRatio: [0.71, 0.71, 0.69, 0.63, 0.74, 0.74, 0.43, 0.37, 0.39, 0.37],
+                icr: [4.3, 4.6, 4.1, 4.2, 3.5, 3.3, 3.3, 6.3, 6.1, 4.5],
+                npm: [6.1, 9.2, 9.1, 8.4, 6.4, 6.0, 10.0, 7.7, 6.8, 7.1],
+                roe: [10.4, 10.7, 10.5, 10.3, 10.2, 8.7, 8.3, 8.6, 8.7, 8.3],
+                assetTurnover: [0.80, 0.51, 0.47, 0.54, 0.64, 0.57, 0.41, 0.53, 0.59, 0.54],
+                inventoryTurnover: [7.8, 5.7, 5.5, 5.5, 7.0, 7.8, 5.5, 6.3, 7.2, 8.1],
+                zScore: [2.1, 2.2, 2.0, 2.3, 2.1, 2.4, 3.1, 3.0, 2.5, 2.6],
+                peRatio: [12.5, 10.1, 13.2, 15.5, 17.8, 22.8, 24.6, 38.1, 34.2, 35.9],
+                equityMultiplier: [2.14, 2.29, 2.49, 2.29, 2.49, 2.56, 2.05, 2.13, 2.16, 2.16]
+            },
+            adani: {
+                currentRatio: [0.82, 0.94, 0.99, 1.03, 1.03, 1.04, 0.93, 0.92, 0.83, 0.83],
+                quickRatio: [0.63, 0.86, 0.92, 0.95, 0.94, 0.95, 0.81, 0.69, 0.67, 0.61],
+                deRatio: [7.74, 1.64, 1.35, 0.28, 0.20, 0.20, 0.60, 1.50, 1.01, 1.13],
+                icr: [1.5, 1.4, 0.6, 1.6, 1.2, 1.5, 1.8, 1.5, 0.9, 1.2],
+                npm: [3.6, 2.9, 2.5, 1.7, 1.3, 2.4, 2.6, 1.1, 1.9, 3.5],
+                roe: [18.7, 7.7, 6.3, 3.9, 3.4, 6.1, 6.1, 2.9, 6.4, 7.6],
+                assetTurnover: [0.50, 0.82, 0.77, 0.64, 0.96, 0.93, 0.77, 0.68, 0.90, 0.60],
+                inventoryTurnover: [5.2, 21.2, 22.1, 13.1, 20.0, 21.8, 15.8, 7.8, 18.4, 10.2],
+                zScore: [0.8, 1.1, 0.9, 1.5, 1.4, 1.6, 1.3, 1.0, 1.1, 1.2],
+                peRatio: [15.1, 7.5, 11.2, 30.1, 35.2, 18.5, 65.0, 235.1, 60.5, 65.9],
+                equityMultiplier: [10.67, 3.21, 3.25, 3.72, 2.86, 2.75, 3.01, 3.77, 3.73, 3.64]
+            }
+        };
+
+        const analysisText = {
+            liquidity: {
+                ril: "RIL's liquidity profile demonstrates controlled prudence. Its Current and Quick Ratios remained stable even during peak capex for Jio, showcasing sophisticated working capital management and the resilience provided by its strong, predictable cash flows.",
+                adani: "AEL's liquidity is visibly strained. The Current Ratio frequently dips below 1.0, a classic red flag indicating short-term liabilities exceed short-term assets. This highlights a structural dependence on continuous refinancing and a key vulnerability of its high-growth model."
+            },
+            solvency: {
+                ril: "RIL operates with a 'fortress balance sheet.' The Debt-to-Equity ratio is conservative, and a landmark deleveraging drive in 2020 fortified it further. Its Interest Coverage Ratio is exceptionally strong, indicating a very comfortable buffer to service its debt.",
+                adani: "Leverage is the defining theme for Adani. The Debt-to-Equity ratio is significantly higher and its Interest Coverage Ratio is consistently weak, often hovering at perilous levels. This confirms a high-risk financial strategy that prioritizes growth over stability."
+            },
+            profitability: {
+                ril: "RIL's profitability shows a classic strategic 'U-shape'. ROE dipped during the Jio investment phase but has since recovered, driven by the success of its new ventures. The high, stable margins of its core O2C business provided a crucial profit anchor throughout.",
+                adani: "AEL presents a paradox of high growth and low returns. While absolute profits grew, its Return on Equity is consistently low and volatile, indicating that the massive capital deployed is not generating adequate returns for shareholders. Profitability is of a lower quality and sustainability."
+            },
+            efficiency: {
+                ril: "RIL's Asset Turnover followed a predictable strategic cycle, dipping during the massive capex rollout and now recovering as new assets generate revenue. This reflects a well-executed long-term plan moving from an 'investment' to a 'harvest' phase.",
+                adani: "AEL's efficiency metrics are erratic, reflecting its incubator model. While Asset Turnover is volatile, a more significant concern is the sharp increase in working capital days, which can signal underlying operational issues that strain its already tight liquidity."
+            }
+        };
+        
+        const rilColor = '#4A90E2';
+        const adaniColor = '#F5A623';
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#E2E8F0'
+                    }
+                }
+            }
+        };
+
+        let charts = {};
+
+        function createChart(ctx, type, data, options) {
+            if (charts[ctx.canvas.id]) {
+                charts[ctx.canvas.id].destroy();
+            }
+            charts[ctx.canvas.id] = new Chart(ctx, { type, data, options });
+        }
+
+        function renderHealthCharts(view) {
+            if (view === 'liquidity') {
+                createChart(document.getElementById('currentRatioChart').getContext('2d'), 'line', {
+                    labels: financialData.years,
+                    datasets: [
+                        { label: 'Reliance', data: financialData.ril.currentRatio, borderColor: rilColor, backgroundColor: rilColor + '33', tension: 0.1, fill: false },
+                        { label: 'Adani', data: financialData.adani.currentRatio, borderColor: adaniColor, backgroundColor: adaniColor + '33', tension: 0.1, fill: false }
+                    ]
+                }, defaultChartOptions);
+                createChart(document.getElementById('quickRatioChart').getContext('2d'), 'line', {
+                    labels: financialData.years,
+                    datasets: [
+                        { label: 'Reliance', data: financialData.ril.quickRatio, borderColor: rilColor, tension: 0.1, fill: false },
+                        { label: 'Adani', data: financialData.adani.quickRatio, borderColor: adaniColor, tension: 0.1, fill: false }
+                    ]
+                }, defaultChartOptions);
+            } else if (view === 'solvency') {
+                createChart(document.getElementById('deRatioChart').getContext('2d'), 'line', {
+                    labels: financialData.years,
+                    datasets: [
+                        { label: 'Reliance', data: financialData.ril.deRatio, borderColor: rilColor, tension: 0.1, fill: false },
+                        { label: 'Adani', data: financialData.adani.deRatio, borderColor: adaniColor, tension: 0.1, fill: false }
+                    ]
+                }, defaultChartOptions);
+                createChart(document.getElementById('icrChart').getContext('2d'), 'line', {
+                    labels: financialData.years,
+                    datasets: [
+                        { label: 'Reliance', data: financialData.ril.icr, borderColor: rilColor, tension: 0.1, fill: false },
+                        { label: 'Adani', data: financialData.adani.icr, borderColor: adaniColor, tension: 0.1, fill: false }
+                    ]
+                }, defaultChartOptions);
+            }
+        }
+
+        function renderPerformanceCharts(view) {
+            if (view === 'profitability') {
+                 createChart(document.getElementById('npmChart').getContext('2d'), 'line', {
+                    labels: financialData.years,
+                    datasets: [
+                        { label: 'Reliance', data: financialData.ril.npm, borderColor: rilColor, tension: 0.1, fill: false },
+                        { label: 'Adani', data: financialData.adani.npm, borderColor: adaniColor, tension: 0.1, fill: false }
+                    ]
+                }, defaultChartOptions);
+                 createChart(document.getElementById('roeChart').getContext('2d'), 'line', {
+                    labels: financialData.years,
+                    datasets: [
+                        { label: 'Reliance', data: financialData.ril.roe, borderColor: rilColor, tension: 0.1, fill: false },
+                        { label: 'Adani', data: financialData.adani.roe, borderColor: adaniColor, tension: 0.1, fill: false }
+                    ]
+                }, defaultChartOptions);
+            } else if (view === 'efficiency') {
+                 createChart(document.getElementById('assetTurnoverChart').getContext('2d'), 'line', {
+                    labels: financialData.years,
+                    datasets: [
+                        { label: 'Reliance', data: financialData.ril.assetTurnover, borderColor: rilColor, tension: 0.1, fill: false },
+                        { label: 'Adani', data: financialData.adani.assetTurnover, borderColor: adaniColor, tension: 0.1, fill: false }
+                    ]
+                }, defaultChartOptions);
+                 createChart(document.getElementById('inventoryTurnoverChart').getContext('2d'), 'line', {
+                    labels: financialData.years,
+                    datasets: [
+                        { label: 'Reliance', data: financialData.ril.inventoryTurnover, borderColor: rilColor, tension: 0.1, fill: false },
+                        { label: 'Adani', data: financialData.adani.inventoryTurnover, borderColor: adaniColor, tension: 0.1, fill: false }
+                    ]
+                }, defaultChartOptions);
+            }
+        }
+
+        function renderRiskCharts() {
+            // Custom plugin to draw background color bands for Z-Score
+            const zScoreBandsPlugin = {
+                id: 'zScoreBands',
+                beforeDraw(chart, args, options) {
+                    const {ctx, chartArea: {top, bottom, left, right}, scales: {y}} = chart;
+                    ctx.save();
+                    const safeY = y.getPixelForValue(2.99);
+                    const distressY = y.getPixelForValue(1.81);
+                    
+                    ctx.fillStyle = 'rgba(34, 197, 94, 0.08)';
+                    ctx.fillRect(left, top, right - left, safeY - top);
+                    
+                    ctx.fillStyle = 'rgba(245, 158, 11, 0.08)';
+                    ctx.fillRect(left, safeY, right - left, distressY - safeY);
+
+                    ctx.fillStyle = 'rgba(239, 68, 68, 0.08)';
+                    ctx.fillRect(left, distressY, right - left, bottom - distressY);
+                    
+                    ctx.restore();
+                }
+            };
+            
+            Chart.register(zScoreBandsPlugin);
+            
+             createChart(document.getElementById('zScoreChart').getContext('2d'), 'line', {
+                labels: financialData.years,
+                datasets: [
+                    { label: 'Reliance', data: financialData.ril.zScore, borderColor: rilColor, tension: 0.1, fill: false },
+                    { label: 'Adani', data: financialData.adani.zScore, borderColor: adaniColor, tension: 0.1, fill: false }
+                ]
+            }, { ...defaultChartOptions, plugins: { ...defaultChartOptions.plugins, zScoreBandsPlugin: true }});
+
+            createChart(document.getElementById('peRatioChart').getContext('2d'), 'line', {
+                labels: financialData.years,
+                datasets: [
+                    { label: 'Reliance', data: financialData.ril.peRatio, borderColor: rilColor, tension: 0.1, fill: false },
+                    { label: 'Adani', data: financialData.adani.peRatio, borderColor: adaniColor, tension: 0.1, fill: false }
+                ]
+            }, defaultChartOptions);
+        }
+        
+        function renderDupontCharts(index) {
+            const year = financialData.years[index];
+            document.getElementById('dupont-year-label').textContent = year;
+            
+            const dupontOptions = {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { 
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.x.toFixed(2);
+                            }
+                        }
+                    }
+                },
+                scales: { 
+                    x: { 
+                        stacked: false, 
+                        grid: { display: false }, 
+                        ticks: { display: true },
+                        beginAtZero: true
+                    }, 
+                    y: { 
+                        stacked: false, 
+                        grid: { display: false }, 
+                        ticks: { display: true } 
+                    } 
+                }
+            };
+
+            const rilDupontData = {
+                labels: ['Net Profit Margin', 'Asset Turnover', 'Equity Multiplier'],
+                datasets: [
+                    { 
+                        label: 'RIL Components', 
+                        data: [financialData.ril.npm[index], financialData.ril.assetTurnover[index], financialData.ril.equityMultiplier[index]], 
+                        backgroundColor: ['#a3bffa', '#6c9cff', '#4a90e2']
+                    }
+                ]
+            };
+             createChart(document.getElementById('rilDupontChart').getContext('2d'), 'bar', rilDupontData, dupontOptions);
+
+            const adaniDupontData = {
+                labels: ['Net Profit Margin', 'Asset Turnover', 'Equity Multiplier'],
+                datasets: [
+                    { 
+                        label: 'Adani Components', 
+                        data: [financialData.adani.npm[index], financialData.adani.assetTurnover[index], financialData.adani.equityMultiplier[index]], 
+                        backgroundColor: ['#ffd59b', '#ffbe6c', '#f5a623']
+                    }
+                ]
+            };
+            createChart(document.getElementById('adaniDupontChart').getContext('2d'), 'bar', adaniDupontData, dupontOptions);
+
+            const rilEq = `ROE (${financialData.ril.roe[index]}%) = NPM (${financialData.ril.npm[index]}%) × Asset Turnover (${financialData.ril.assetTurnover[index]}) × Leverage (${financialData.ril.equityMultiplier[index]})`;
+            const adaniEq = `ROE (${financialData.adani.roe[index]}%) = NPM (${financialData.adani.npm[index]}%) × Asset Turnover (${financialData.adani.assetTurnover[index]}) × Leverage (${financialData.adani.equityMultiplier[index]})`;
+            document.getElementById('ril-dupont-equation').textContent = rilEq;
+            document.getElementById('adani-dupont-equation').textContent = adaniEq;
+        }
+
+        function setupToggle(toggleContainerId, chartContainerId, analysisData) {
+            const toggleContainer = document.getElementById(toggleContainerId);
+            const chartViews = document.getElementById(chartContainerId).children;
+            const rilTextElem = document.getElementById(`ril-${toggleContainerId.split('-')[0]}-text`);
+            const adaniTextElem = document.getElementById(`adani-${toggleContainerId.split('-')[0]}-text`);
+
+            toggleContainer.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    const view = e.target.dataset.view;
+                    
+                    for (const btn of toggleContainer.children) {
+                        btn.classList.remove('active');
+                    }
+                    e.target.classList.add('active');
+
+                    for (const chartView of chartViews) {
+                        if (chartView.dataset.view === view) {
+                            chartView.classList.remove('hidden');
+                        } else {
+                            chartView.classList.add('hidden');
+                        }
+                    }
+
+                    if (toggleContainerId === 'health-toggle') {
+                        renderHealthCharts(view);
+                    } else if (toggleContainerId === 'performance-toggle') {
+                        renderPerformanceCharts(view);
+                    }
+                    
+                    if (rilTextElem && adaniTextElem) {
+                        rilTextElem.textContent = analysisData[view].ril;
+                        adaniTextElem.textContent = analysisData[view].adani;
+                    }
+                }
+            });
+            toggleContainer.querySelector('button').click();
+        }
+        
+        function setupNavObserver() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // Initial setup
+        setupToggle('health-toggle', 'health-charts', { liquidity: analysisText.liquidity, solvency: analysisText.solvency });
+        setupToggle('performance-toggle', 'performance-charts', { profitability: analysisText.profitability, efficiency: analysisText.efficiency });
+        
+        renderRiskCharts();
+        
+        const dupontSlider = document.getElementById('dupont-year-slider');
+        dupontSlider.addEventListener('input', (e) => renderDupontCharts(e.target.value));
+        renderDupontCharts(dupontSlider.value);
+        
+        setupNavObserver();
+    });
+    </script>
+</body>
+</html>
+
